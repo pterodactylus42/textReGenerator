@@ -6,4 +6,6 @@ The nginx container runs as server for the site.
 
 The predictor container contains the model.
 
+![Bild](https://github.com/user-attachments/assets/78be84e4-45b6-47bb-a371-7598aac6c591)
+
 For documentation take a look into the readme files in the shared/container subdirs.
