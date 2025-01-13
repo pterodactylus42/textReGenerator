@@ -97,6 +97,20 @@ def nudge_endpoint():
     return jsonify({'sequence': result.tolist()})
 
 
+@app.route('/word', methods=['POST'])
+def word_endpoint():
+    data = request.get_json()
+    if not data or 'sequence' not in data:
+        return jsonify({'error': 'Invalid input'}), 400
+    
+    sequence = data['sequence']
+    if not isinstance(sequence, int):
+        return jsonify({'error': 'Element must be integer'}), 400
+
+    result = int_to_word[sequence]
+    return jsonify({'word': result})
+
+
 @app.route('/sum', methods=['POST'])
 def sum_endpoint():
     data = request.get_json()
