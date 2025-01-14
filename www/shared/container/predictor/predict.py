@@ -60,7 +60,7 @@ CORS(app)
 @app.route('/seed', methods=['POST'])
 def seed_endpoint():
     my_seed = seed()
-    return jsonify({'sequence': my_seed})
+    return jsonify({'sequence': my_seed.tolist()})
 
 
 @app.route('/next', methods=['POST'])
@@ -77,7 +77,7 @@ def next_endpoint():
         return jsonify({'error': 'Sequence length is not 40'}), 400
 
     result = next(np.array(sequence))
-    return jsonify({'next': result})
+    return jsonify({'next': result.tolist()})
 
 
 @app.route('/nudge', methods=['POST'])
